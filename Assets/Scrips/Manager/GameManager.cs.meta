@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: f3e9ee4ea1d559946a7878672a25a91b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - windPrefab: {fileID: 1228655014490411488, guid: 8447f2ff4018fc94888b6c781d56a257, type: 3}
+  - enemyStone: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
