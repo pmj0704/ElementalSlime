@@ -36,21 +36,23 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scrips\BossManager.cs" />
-     <Compile Include="Assets\Scrips\BulletMove.cs" />
+     <Compile Include="Assets\Scrips\Manager\DontDistroy.cs" />
+     <Compile Include="Assets\Scrips\Enemy\BossManager.cs" />
+     <Compile Include="Assets\Scrips\UI\ItemMove.cs" />
+     <Compile Include="Assets\Scrips\Enemy\DragonFly.cs" />
+     <Compile Include="Assets\Scrips\Player\BulletMove.cs" />
+     <Compile Include="Assets\Scrips\Pool\BulletEnemy.cs" />
      <Compile Include="Assets\Scrips\Manager\GameManager.cs" />
-     <Compile Include="Assets\Scrips\EnemyMove.cs" />
-     <Compile Include="Assets\Scrips\WindMove.cs" />
-     <Compile Include="Assets\Scrips\BossPArt.cs" />
+     <Compile Include="Assets\Scrips\Enemy\EnemyMove.cs" />
+     <Compile Include="Assets\Scrips\UI\WindMove.cs" />
+     <Compile Include="Assets\Scrips\Enemy\BossPArt.cs" />
      <Compile Include="Assets\Scrips\Pool\PoolManager.cs" />
      <Compile Include="Assets\Scrips\Pool\EnemyBulletManager.cs" />
      <Compile Include="Assets\Scrips\Pool\ObjectManager.cs" />
-     <Compile Include="Assets\Scrips\Pool\PlayerMove.cs" />
-     <Compile Include="Assets\Scrips\Manager\BackGroundMove.cs" />
+     <Compile Include="Assets\Scrips\Player\PlayerMove.cs" />
+     <Compile Include="Assets\Scrips\UI\BackGroundMove.cs" />
      <Compile Include="Assets\Scrips\Manager\GameOverManager.cs" />
-     <Compile Include="Assets\Scrips\CloudMove.cs" />
-     <Compile Include="Assets\Scrips\DragonFly.cs" />
-     <Compile Include="Assets\Scrips\BulletEnemy.cs" />
+     <Compile Include="Assets\Scrips\UI\CloudMove.cs" />
      <None Include="Assets\Sprites\SimpleAdditiveSprite.shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
