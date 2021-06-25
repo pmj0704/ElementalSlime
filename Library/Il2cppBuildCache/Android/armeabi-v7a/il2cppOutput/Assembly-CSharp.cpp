@@ -5382,6 +5382,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EnemyMove_State_mA0237C8A0709BC8A392E8E6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Behaviour_set_enabled_mDE415591B28853D1CD764C53CB499A2142247F32 (Behaviour_t1A3DDDCF73B4627928FBFE02ED52B7251777DBD9 * __this, bool ___value0, const RuntimeMethod* method);
 // System.Void UnityEngine.SpriteRenderer::set_sprite(UnityEngine.Sprite)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SpriteRenderer_set_sprite_mBCFFBF3F10C068FD1174C4506DF73E204303FC1A (SpriteRenderer_t3F35AD5498243C170B46F5FFDB582AAEF78615EF * __this, Sprite_t5B10B1178EC2E6F53D33FFD77557F31C08A51ED9 * ___value0, const RuntimeMethod* method);
+// System.Void GameManager::spawnOne()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_spawnOne_m7E2BF41F20C00F83165A5E85DC0B5291BF14082D (GameManager_t9013B33302D2B40A51D0E8059DEE0DC180218AA1 * __this, const RuntimeMethod* method);
 // System.Collections.IEnumerator GameManager::randomItemEnemySpawn()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GameManager_randomItemEnemySpawn_mF82550C8D06C379192761D4ED61A45E45D7C2F3C (GameManager_t9013B33302D2B40A51D0E8059DEE0DC180218AA1 * __this, const RuntimeMethod* method);
 // System.Int32 UnityEngine.PlayerPrefs::GetInt(System.String)
@@ -5414,8 +5416,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GameManager_SpawnWind_m8974D8D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GameManager_Wait_m4DDF1122392521271D34C9998C5702B5349A60FD (GameManager_t9013B33302D2B40A51D0E8059DEE0DC180218AA1 * __this, const RuntimeMethod* method);
 // System.Void GameManager::UpdateUI()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_UpdateUI_m4347A5424E1EE88D6BC2F1B5D215FE2115AFAB65 (GameManager_t9013B33302D2B40A51D0E8059DEE0DC180218AA1 * __this, const RuntimeMethod* method);
-// System.Void GameManager::spawnOne()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_spawnOne_m7E2BF41F20C00F83165A5E85DC0B5291BF14082D (GameManager_t9013B33302D2B40A51D0E8059DEE0DC180218AA1 * __this, const RuntimeMethod* method);
 // System.Collections.IEnumerator GameManager::SpawnDragonfly()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GameManager_SpawnDragonfly_m8E9C01C809C2851D596B14D486C2BB1ED2F8BA77 (GameManager_t9013B33302D2B40A51D0E8059DEE0DC180218AA1 * __this, const RuntimeMethod* method);
 // System.Void GameManager::Shrink()
@@ -7317,7 +7317,7 @@ IL_0009:
 		L_7 = Vector2_op_Implicit_m4FA146E613DBFE6C1C4B0E9B461D622E6F2FC294_inline(L_6, /*hidden argument*/NULL);
 		NullCheck(L_1);
 		Transform_Translate_m24A8CB13E2AAB0C17EE8FE593266CF463E0B02D0(L_1, L_7, /*hidden argument*/NULL);
-		// if (transform.position.x < gameManager.MinPosition.x - 2f || transform.position.y > gameManager.MaxPosition.y)
+		// if (transform.position.x < gameManager.MinPosition.x  || transform.position.y > gameManager.MaxPosition.y)
 		Transform_tA8193BB29D4D2C7EC04918F3ED1816345186C3F1 * L_8;
 		L_8 = Component_get_transform_mE8496EBC45BEB1BADB5F314960F1DF1C952FA11F(__this, /*hidden argument*/NULL);
 		NullCheck(L_8);
@@ -7329,9 +7329,9 @@ IL_0009:
 		Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7EC2D9  L_12;
 		L_12 = GameManager_get_MinPosition_mB50D1C8AA1A9FA284172ACA40CA9C09082581FC8_inline(L_11, /*hidden argument*/NULL);
 		float L_13 = L_12.get_x_0();
-		if ((((float)L_10) < ((float)((float)il2cpp_codegen_subtract((float)L_13, (float)(2.0f))))))
+		if ((((float)L_10) < ((float)L_13)))
 		{
-			goto IL_007d;
+			goto IL_0077;
 		}
 	}
 	{
@@ -7348,11 +7348,11 @@ IL_0009:
 		float L_19 = L_18.get_y_1();
 		if ((!(((float)L_16) > ((float)L_19))))
 		{
-			goto IL_0089;
+			goto IL_0083;
 		}
 	}
 
-IL_007d:
+IL_0077:
 	{
 		// gameObject.SetActive(false);
 		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_20;
@@ -7361,7 +7361,7 @@ IL_007d:
 		GameObject_SetActive_mCF1EEF2A314F3AE85DA581FF52EB06ACEF2FFF86(L_20, (bool)0, /*hidden argument*/NULL);
 	}
 
-IL_0089:
+IL_0083:
 	{
 		// }
 		return;
@@ -8265,6 +8265,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_Start_m26461AEF27E44DB8FECCB
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// spawnOne();
+		GameManager_spawnOne_m7E2BF41F20C00F83165A5E85DC0B5291BF14082D(__this, /*hidden argument*/NULL);
 		// StartCoroutine(randomItemEnemySpawn());
 		RuntimeObject* L_0;
 		L_0 = GameManager_randomItemEnemySpawn_mF82550C8D06C379192761D4ED61A45E45D7C2F3C(__this, /*hidden argument*/NULL);
@@ -8322,8 +8324,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_Start_m26461AEF27E44DB8FECCB
 		__this->set_enemyCoroutine_29(L_14);
 		// UpdateUI();
 		GameManager_UpdateUI_m4347A5424E1EE88D6BC2F1B5D215FE2115AFAB65(__this, /*hidden argument*/NULL);
-		// spawnOne();
-		GameManager_spawnOne_m7E2BF41F20C00F83165A5E85DC0B5291BF14082D(__this, /*hidden argument*/NULL);
 		// StartCoroutine(SpawnDragonfly());
 		RuntimeObject* L_15;
 		L_15 = GameManager_SpawnDragonfly_m8E9C01C809C2851D596B14D486C2BB1ED2F8BA77(__this, /*hidden argument*/NULL);
@@ -8705,20 +8705,12 @@ IL_00be:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_spawnOne_m7E2BF41F20C00F83165A5E85DC0B5291BF14082D (GameManager_t9013B33302D2B40A51D0E8059DEE0DC180218AA1 * __this, const RuntimeMethod* method)
 {
 	{
-		// spawnHelpEnemy(enemyPixi, 231233f, 6f);
-		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_0 = __this->get_enemyPixi_11();
-		GameManager_spawnHelpEnemy_mE7200498AADB9E7957757AF71FDB914D1ED80DF5(__this, L_0, (231233.0f), (6.0f), /*hidden argument*/NULL);
-		// enemyPixi.SetActive(false);
-		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_1 = __this->get_enemyPixi_11();
-		NullCheck(L_1);
-		GameObject_SetActive_mCF1EEF2A314F3AE85DA581FF52EB06ACEF2FFF86(L_1, (bool)0, /*hidden argument*/NULL);
 		// spawnHelpEnemy(enemyStone, 3123123f, 6f);
-		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_2 = __this->get_enemyStone_10();
-		GameManager_spawnHelpEnemy_mE7200498AADB9E7957757AF71FDB914D1ED80DF5(__this, L_2, (3123123.0f), (6.0f), /*hidden argument*/NULL);
-		// enemyStone.SetActive(false);
-		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_3 = __this->get_enemyStone_10();
-		NullCheck(L_3);
-		GameObject_SetActive_mCF1EEF2A314F3AE85DA581FF52EB06ACEF2FFF86(L_3, (bool)0, /*hidden argument*/NULL);
+		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_0 = __this->get_enemyStone_10();
+		GameManager_spawnHelpEnemy_mE7200498AADB9E7957757AF71FDB914D1ED80DF5(__this, L_0, (3123123.0f), (6.0f), /*hidden argument*/NULL);
+		// spawnHelpEnemy(enemyPixi, 231233f, 6f);
+		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_1 = __this->get_enemyPixi_11();
+		GameManager_spawnHelpEnemy_mE7200498AADB9E7957757AF71FDB914D1ED80DF5(__this, L_1, (231233.0f), (6.0f), /*hidden argument*/NULL);
 		// }
 		return;
 	}

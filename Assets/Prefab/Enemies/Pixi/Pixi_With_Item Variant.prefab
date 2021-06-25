@@ -280,6 +280,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pixi_With_Item Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8270026026354598780, guid: 2a4283da2c4e38240bbccbaefe1587b1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8270026026354598783, guid: 2a4283da2c4e38240bbccbaefe1587b1, type: 3}
       propertyPath: m_RootOrder
       value: 0

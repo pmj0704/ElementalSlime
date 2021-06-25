@@ -11,19 +11,19 @@ C:\Program Files\Unity\Hub\Editor\2020.3.4f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/USER/Documents/MYSG
+C:/Users/USER/Documents/ElementalSlime
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-6110
-Successfully changed project path to: C:/Users/USER/Documents/MYSG
-C:/Users/USER/Documents/MYSG
+9598
+Successfully changed project path to: C:/Users/USER/Documents/ElementalSlime
+C:/Users/USER/Documents/ElementalSlime
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 52.64 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 103.18 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.4f1 (0abb6314276a)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/USER/Documents/MYSG/Assets
+[Subsystems] Discovering subsystems at path C:/Users/USER/Documents/ElementalSlime/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
@@ -35,105 +35,117 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56436
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56352
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003077 seconds.
+Registered in 0.005234 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 46.70 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 59.58 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.898 seconds
+- Completed reload, in  2.062 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001423 seconds.
+Registered in 0.001440 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 46.17 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 44.23 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.238 seconds
+- Completed reload, in  1.117 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 0.40 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.48 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1827 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 105.1 MB.
 System memory in use after: 105.2 MB.
 
 Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2299.
-Total: 2.077700 ms (FindLiveObjects: 0.166100 ms CreateObjectMapping: 0.069600 ms MarkObjects: 1.825600 ms  DeleteObjects: 0.015800 ms)
+Total: 2.233500 ms (FindLiveObjects: 0.204300 ms CreateObjectMapping: 0.093500 ms MarkObjects: 1.917400 ms  DeleteObjects: 0.017500 ms)
 
 ========================================================================
 Received Import Request.
   path: Assets/Scenes/Main.unity
   artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Main.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcd21cd0314874a3e0c02b48eed0ed42') in 0.012064 seconds
-  Import took 0.016250 seconds .
+Start importing Assets/Scenes/Main.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da8a2a5ff154fa3dbd18430ea534503d') in 0.035573 seconds
+  Import took 0.039074 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 52.807756 seconds.
-  path: Assets/Scrips/UI/BackGroundMove.cs
-  artifactKey: Guid(0914c21a702f822469d0d94de1bd3e3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scrips/UI/BackGroundMove.cs using Guid(0914c21a702f822469d0d94de1bd3e3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd97b100ccb72fbcf4d2c1017beea3a3d') in 0.031976 seconds
-  Import took 0.035197 seconds .
+  Time since last request: 10.208903 seconds.
+  path: Assets/Prefab/Enemies/Pixi/Pixi.prefab
+  artifactKey: Guid(2a4283da2c4e38240bbccbaefe1587b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Enemies/Pixi/Pixi.prefab using Guid(2a4283da2c4e38240bbccbaefe1587b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '808ad4a3128ba9fd09477c3d108457bf') in 0.097558 seconds
+  Import took 0.100725 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000290 seconds.
+  path: Assets/Prefab/Enemies/Pixi/Pixi_With_Item Variant.prefab
+  artifactKey: Guid(81c5f9dcdc930c643a75867cffa5b78a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Enemies/Pixi/Pixi_With_Item Variant.prefab using Guid(81c5f9dcdc930c643a75867cffa5b78a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fb457afcc73797f254a5a8615d31f3a') in 0.017110 seconds
+  Import took 0.020807 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.688803 seconds.
+  path: Assets/Prefab/Enemies/Pixi/Pixi.prefab
+  artifactKey: Guid(2a4283da2c4e38240bbccbaefe1587b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Enemies/Pixi/Pixi.prefab using Guid(2a4283da2c4e38240bbccbaefe1587b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '740cf2e4475c7d1fe49ba98ca4dc719b') in 0.015984 seconds
+  Import took 0.019903 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011301 seconds.
+  path: Assets/Prefab/Enemies/Pixi/Pixi.prefab
+  artifactKey: Guid(2a4283da2c4e38240bbccbaefe1587b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Enemies/Pixi/Pixi.prefab using Guid(2a4283da2c4e38240bbccbaefe1587b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '740cf2e4475c7d1fe49ba98ca4dc719b') in 0.014172 seconds
+  Import took 0.017940 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001414 seconds.
+Registered in 0.001879 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.37 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.35 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.974 seconds
+- Completed reload, in  1.149 seconds
 Platform modules already initialized, skipping
 Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.38 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.92 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1818 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 104.1 MB.
-System memory in use after: 104.2 MB.
+System memory in use before: 107.3 MB.
+System memory in use after: 107.4 MB.
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 2302.
-Total: 2.255400 ms (FindLiveObjects: 0.151500 ms CreateObjectMapping: 0.053400 ms MarkObjects: 2.037800 ms  DeleteObjects: 0.011900 ms)
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 2309.
+Total: 2.133800 ms (FindLiveObjects: 0.233600 ms CreateObjectMapping: 0.084700 ms MarkObjects: 1.799400 ms  DeleteObjects: 0.015100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
 Received Import Request.
-  Time since last request: 38.545195 seconds.
-  path: Assets/Scrips/UI/BackGroundMove.cs
-  artifactKey: Guid(0914c21a702f822469d0d94de1bd3e3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scrips/UI/BackGroundMove.cs using Guid(0914c21a702f822469d0d94de1bd3e3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb9e1960bfe5d392f2cb93086b30284f') in 0.005600 seconds
-  Import took 0.009407 seconds .
+  Time since last request: 66.402471 seconds.
+  path: Assets/Scenes/GameOver.unity
+  artifactKey: Guid(94ecdce2d022ca9498e411c154155a51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GameOver.unity using Guid(94ecdce2d022ca9498e411c154155a51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bdd9a3c0c214b624e83abf258be2ee6') in 0.021414 seconds
+  Import took 0.024447 seconds .
 
 ========================================================================
 Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001562 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.58 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 3.50 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.057 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.37 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1818 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 104.2 MB.
-System memory in use after: 104.3 MB.
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.8 MB.
+System memory in use after: 71.9 MB.
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 2305.
-Total: 1.903700 ms (FindLiveObjects: 0.238600 ms CreateObjectMapping: 0.078200 ms MarkObjects: 1.573100 ms  DeleteObjects: 0.012600 ms)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 2309.
+Total: 2.308300 ms (FindLiveObjects: 0.180900 ms CreateObjectMapping: 0.050100 ms MarkObjects: 2.040100 ms  DeleteObjects: 0.036300 ms)
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

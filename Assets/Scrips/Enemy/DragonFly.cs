@@ -13,7 +13,7 @@ public class DragonFly : EnemyMove
     {
         if(isDead) return;
         transform.Translate(Vector2.left * speed * Time.deltaTime);
-        if (transform.position.x < gameManager.MinPosition.x - 2f || transform.position.y > gameManager.MaxPosition.y)
+        if (transform.position.x < gameManager.MinPosition.x  || transform.position.y > gameManager.MaxPosition.y)
         {
             gameObject.SetActive(false);
         }

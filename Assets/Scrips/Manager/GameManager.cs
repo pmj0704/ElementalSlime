@@ -57,6 +57,7 @@ private bool bossActivate = true;
     #region 시작, 업데이트
     void Start()
     {
+        spawnOne();
         StartCoroutine(randomItemEnemySpawn());
        highScore = PlayerPrefs.GetInt("HIGHSCORE");
         enemyMove = FindObjectOfType<EnemyMove>();
@@ -71,7 +72,7 @@ private bool bossActivate = true;
         StartCoroutine(SpawnWind());
         enemyCoroutine = StartCoroutine(Wait());
         UpdateUI();
-        spawnOne();
+        //spawnOne();
         StartCoroutine(SpawnDragonfly());
     }
     public void getLife(int num)
@@ -159,19 +160,18 @@ private bool bossActivate = true;
                         break;
                     case 1:
                         spawnHelpEnemy(enemyStone, randomX, 6f);
+
                         break;
                     case 2:
                         spawnHelpEnemy(enemyDragonFly, 3f, randomY);
                         break;
                 }               
             }
-        }
+   }
     private void spawnOne()
     {
-        spawnHelpEnemy(enemyPixi, 231233f, 6f);
-        enemyPixi.SetActive(false);
         spawnHelpEnemy(enemyStone, 3123123f, 6f);
-        enemyStone.SetActive(false);
+        spawnHelpEnemy(enemyPixi, 231233f, 6f);
     }
     private IEnumerator SpawnDragonfly()
     {
