@@ -260,8 +260,8 @@ extern void U3CFireU3Ed__40_System_Collections_Generic_IEnumeratorU3CSystem_Obje
 extern void U3CFireU3Ed__40_System_Collections_IEnumerator_Reset_mEECD49EBC3DAE5739A96FC0EDAEEA171D27B7F5B (void);
 // 0x0000007C System.Object EnemyMove/<Fire>d__40::System.Collections.IEnumerator.get_Current()
 extern void U3CFireU3Ed__40_System_Collections_IEnumerator_get_Current_m59085935E8876360D29E09393EA5DA12093FAEA8 (void);
-// 0x0000007D System.Void DontDistroy::Start()
-extern void DontDistroy_Start_m963E662ED41483AFB049394EC1FEF45B2C88B48C (void);
+// 0x0000007D System.Void DontDistroy::Awake()
+extern void DontDistroy_Awake_m6056CD76FA4D40DBAC7EB8AD42D2CE5AA2F04CC6 (void);
 // 0x0000007E System.Void DontDistroy::.ctor()
 extern void DontDistroy__ctor_m2FDD11059C54E6A4EAED67E98771A0976FEAA487 (void);
 // 0x0000007F UnityEngine.Vector2 GameManager::get_MinPosition()
@@ -650,7 +650,7 @@ static Il2CppMethodPointer s_methodPointers[256] =
 	U3CFireU3Ed__40_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m3B457B4B4D779453C0304E7072D4F706039FCACF,
 	U3CFireU3Ed__40_System_Collections_IEnumerator_Reset_mEECD49EBC3DAE5739A96FC0EDAEEA171D27B7F5B,
 	U3CFireU3Ed__40_System_Collections_IEnumerator_get_Current_m59085935E8876360D29E09393EA5DA12093FAEA8,
-	DontDistroy_Start_m963E662ED41483AFB049394EC1FEF45B2C88B48C,
+	DontDistroy_Awake_m6056CD76FA4D40DBAC7EB8AD42D2CE5AA2F04CC6,
 	DontDistroy__ctor_m2FDD11059C54E6A4EAED67E98771A0976FEAA487,
 	GameManager_get_MinPosition_mB50D1C8AA1A9FA284172ACA40CA9C09082581FC8,
 	GameManager_set_MinPosition_m338E34493C6235788B3850D4F6FAC27D605788F5,

@@ -1004,6 +1004,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515515721}
   m_CullTransparentMesh: 0
+--- !u!1 &677163642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 677163644}
+  - component: {fileID: 677163643}
+  - component: {fileID: 677163645}
+  m_Layer: 0
+  m_Name: AudioListener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &677163643
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677163642}
+  m_Enabled: 1
+--- !u!4 &677163644
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677163642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.647479, y: -0.2601559, z: -11.712104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &677163645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677163642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3738579b1b2610f49ab36bed81598c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &761907975
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,7 +1825,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1139767416}
   - component: {fileID: 1139767415}
-  - component: {fileID: 1139767414}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1781,14 +1832,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1139767414
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1139767413}
-  m_Enabled: 1
 --- !u!20 &1139767415
 Camera:
   m_ObjectHideFlags: 0
@@ -1881,12 +1924,13 @@ MonoBehaviour:
   - {fileID: 5549599271819361127, guid: 3885f32b04802c941b5b7b52e192a2e3, type: 3}
   - {fileID: 7720522636513596459, guid: 25b24828474af994c9f910ac95f744c7, type: 3}
   - {fileID: 9088700952568198514, guid: b4e4ac5228cb30845ad2b80411fa3ef1, type: 3}
-  mainCamera: {fileID: 1139767415}
+  audioListener: {fileID: 0}
   discr: {fileID: 489819310}
   setting: {fileID: 1270144371}
   help: {fileID: 989737142}
   next: {fileID: 1465221019}
   recent: {fileID: 1748131023}
+  onSound: 1
   SoundSprite:
   - {fileID: 21300000, guid: 90fed1e03ac85df4d97539aabbb4acba, type: 3}
   - {fileID: 21300000, guid: 45d9c54ae4276ca4186b4609e9208771, type: 3}

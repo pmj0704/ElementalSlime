@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class DontDistroy : MonoBehaviour
 {
-    private AudioSource audioSource = null;
-    void Start()
+    void Awake()
     {
-
-        if(FindObjectsOfType<DontDistroy>().Length > 1)
-        {
-            Destroy(FindObjectsOfType<DontDistroy>()[1].gameObject);
-        }
-
-        audioSource = GetComponent<AudioSource>();  
-        if(audioSource.isPlaying) return;
-        else{
-            audioSource.Play();
+        var obj = FindObjectsOfType<AudioListener>();
+        if (obj.Length == 1) {
             DontDestroyOnLoad(gameObject);
-            }
+        } else {
+            Destroy(gameObject);
     }
+}
 }

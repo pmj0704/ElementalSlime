@@ -274,6 +274,7 @@ private bool bossActivate = true;
     public void Yes()
     {
         SceneManager.LoadScene("GameOver");
+        Time.timeScale = 1f;
     }
     public void No()
     {

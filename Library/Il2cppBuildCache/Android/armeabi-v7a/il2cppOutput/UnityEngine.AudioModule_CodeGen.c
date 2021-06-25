@@ -60,12 +60,12 @@ extern void PCMSetPositionCallback_Invoke_m1FBFFA5FC15B57601D6D13F4A574F7CAD2A93
 extern void PCMSetPositionCallback_BeginInvoke_mF8CA8E07FDAF6B0821D2F1AE8F8545DC0FADC3A3 (void);
 // 0x00000018 System.Void UnityEngine.AudioClip/PCMSetPositionCallback::EndInvoke(System.IAsyncResult)
 extern void PCMSetPositionCallback_EndInvoke_m7096B994374E95A90C84B87625494BE1076B8574 (void);
-// 0x00000019 System.Void UnityEngine.AudioSource::PlayHelper(UnityEngine.AudioSource,System.UInt64)
+// 0x00000019 System.Void UnityEngine.AudioListener::set_pause(System.Boolean)
+extern void AudioListener_set_pause_m31B1DCCAD9D3B48EEE8A6F221FD550F2CBAED389 (void);
+// 0x0000001A System.Void UnityEngine.AudioSource::PlayHelper(UnityEngine.AudioSource,System.UInt64)
 extern void AudioSource_PlayHelper_mAE7BC6AD4F09442D5EB0FF7711ECAB7580195814 (void);
-// 0x0000001A System.Void UnityEngine.AudioSource::Play()
+// 0x0000001B System.Void UnityEngine.AudioSource::Play()
 extern void AudioSource_Play_mED16664B8F8F3E4D68785C8C00FC96C4DF053AE1 (void);
-// 0x0000001B System.Boolean UnityEngine.AudioSource::get_isPlaying()
-extern void AudioSource_get_isPlaying_mEA69477C77D542971F7B454946EF25DFBE0AF6A8 (void);
 // 0x0000001C UnityEngine.Playables.PlayableHandle UnityEngine.Audio.AudioClipPlayable::GetHandle()
 extern void AudioClipPlayable_GetHandle_mBEB846B088961170B6DB961951B511C11B98E0B8 (void);
 // 0x0000001D System.Boolean UnityEngine.Audio.AudioClipPlayable::Equals(UnityEngine.Audio.AudioClipPlayable)
@@ -112,9 +112,9 @@ static Il2CppMethodPointer s_methodPointers[37] =
 	PCMSetPositionCallback_Invoke_m1FBFFA5FC15B57601D6D13F4A574F7CAD2A93B7E,
 	PCMSetPositionCallback_BeginInvoke_mF8CA8E07FDAF6B0821D2F1AE8F8545DC0FADC3A3,
 	PCMSetPositionCallback_EndInvoke_m7096B994374E95A90C84B87625494BE1076B8574,
+	AudioListener_set_pause_m31B1DCCAD9D3B48EEE8A6F221FD550F2CBAED389,
 	AudioSource_PlayHelper_mAE7BC6AD4F09442D5EB0FF7711ECAB7580195814,
 	AudioSource_Play_mED16664B8F8F3E4D68785C8C00FC96C4DF053AE1,
-	AudioSource_get_isPlaying_mEA69477C77D542971F7B454946EF25DFBE0AF6A8,
 	AudioClipPlayable_GetHandle_mBEB846B088961170B6DB961951B511C11B98E0B8,
 	AudioClipPlayable_Equals_m52ECDD49AE6BD8AB4C0AC83C417A0C1B23E3E55E,
 	AudioMixerPlayable_GetHandle_m76EFC486A7639C4842F590F544B60988CF27BB17,
@@ -163,9 +163,9 @@ static const int32_t s_InvokerIndices[37] =
 	959,
 	307,
 	968,
+	1917,
 	1763,
 	1128,
-	1116,
 	1101,
 	823,
 	1101,

@@ -13,7 +13,7 @@ public class GameOverManager : MonoBehaviour
     [SerializeField]
     private GameObject[] spriteCloud = null;
     public PoolManager poolManager { get; private set; }
-    [SerializeField] private Camera mainCamera;
+    [SerializeField] private AudioListener audioListener;
     [SerializeField] private GameObject discr;
     [SerializeField] private GameObject setting;
     [SerializeField] private GameObject help;
@@ -23,7 +23,7 @@ public class GameOverManager : MonoBehaviour
         private int num = 0;
 
     private bool onSetting = true;
-    private bool onSound = true;
+    public bool onSound = true;
     private bool onLic = true;
 
     [SerializeField] Sprite[] SoundSprite;
@@ -34,6 +34,7 @@ public class GameOverManager : MonoBehaviour
 
     void Start()
     {
+        audioListener = FindObjectOfType<AudioListener>();
         textHighScore.text = string.Format("HIGHSCORE {0}", PlayerPrefs.GetInt("HIGHSCORE", 0));
         StartCoroutine(SpawnCloud());
         MinPosition = new Vector2(-2f, -4.3f);
@@ -70,7 +71,6 @@ public class GameOverManager : MonoBehaviour
     // Update is called once per frame
     public void ClickToStart()
     {
-    mainCamera.GetComponent<AudioListener>().enabled = true;
         SceneManager.LoadScene("Main");
     }
 
@@ -95,12 +95,12 @@ public class GameOverManager : MonoBehaviour
    public void Sound()
    {
        if(onSound){
-    mainCamera.GetComponent<AudioListener>().enabled = false;
+    AudioListener.pause = true;
     SoundBT.GetComponent<Animator>().Play("NO");
     onSound = false;
        }
        else if(!onSound){
-    mainCamera.GetComponent<AudioListener>().enabled = true;
+        AudioListener.pause = false;
         SoundBT.GetComponent<Animator>().Play("YES");
     onSound = true;
        }
