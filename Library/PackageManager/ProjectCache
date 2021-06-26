@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637581490672705313
-    m_Hash: 127026619
+      ticks: 637602971512078651
+    m_Hash: 4196210864
   m_LockFileStatus:
     m_FilePath: C:/Users/USER/Documents/ElementalSlime/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637581490766107904
-    m_Hash: 4047100667
+      ticks: 637602971512098597
+    m_Hash: 1357309426
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
