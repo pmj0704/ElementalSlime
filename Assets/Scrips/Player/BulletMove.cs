@@ -6,9 +6,7 @@ public class BulletMove : MonoBehaviour
 {
 
     #region 변수 목록
-    [Header("이동 속도")]
-    [SerializeField]
-    protected float speed = 10f;
+    [Header("이동 속도")] [SerializeField] protected float speed = 10f;
     private Vector2 bulletScale = Vector2.one;
     protected GameManager gameManager = null;
     private SpriteRenderer spriteRenderer = null;

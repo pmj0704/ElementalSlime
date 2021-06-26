@@ -11,7 +11,6 @@ public class BulletEnemy : BulletMove
         enemyBulletManager = FindObjectOfType<EnemyBulletManager>();
     }
 
-    // Update is called once per frame
     protected override void Update()
     {
         transform.position += Vector3.down * speed * Time.deltaTime;

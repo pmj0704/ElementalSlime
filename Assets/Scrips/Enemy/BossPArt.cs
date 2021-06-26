@@ -5,59 +5,60 @@ using UnityEngine;
 public class BossPArt : MonoBehaviour
 {
 
+    #region 플레이어 추적
+    [Header("적 이동속도")] [SerializeField] private float speed = 5f;
+    [Header("몇도 기울었는지")] [SerializeField] private int Dir;
+    private Transform player;
+    #endregion
+
+    #region 불변수
+    private bool isDead = false;
+    private bool isDamaged = false;
+    #endregion
+
+    #region 보스 파트
+    [Header("적 HP")][SerializeField]private int hp = 7;
+    [Header("움직이는가?")][SerializeField]private bool isMove = false;
+    [Header("보스가 생성할 팔")][SerializeField]private GameObject[] newArm;
+    [Header("보스 중심부")][SerializeField]private bool mainPart = false;
+    [Header("보스 프리팹")] [SerializeField] private GameObject bossGolem = null;
+    #endregion
+
+    #region 컴포턴트와 오브젝트 타입
+    private EnemyMove enemyMove = null; 
+    private AudioSource audioSource;
     private GameManager gameManager = null;
     private Animator animator = null;
     private Collider2D col = null;
     private SpriteRenderer spriteRenderer = null;
     private BossManager bossManager = null;
-    [Header("적 HP")]
-    [SerializeField]
-    private int hp = 7;
+    #endregion
     
-    [Header("적 이동속도")]
-    [SerializeField]
-    private float speed = 5f;
-    [SerializeField]
-    private int Dir;
-    private Transform player;
-    private bool isDead = false;
-    private bool isDamaged = false;
-    private EnemyMove enemyMove = null;
-    [SerializeField]private GameObject[] newArm;
-    [SerializeField]private bool isMove = false;
-    [SerializeField]private bool mainPart = false;
-    private AudioSource audioSource;
-[Header("보스 프리팹")]
-    [SerializeField]
-    private GameObject bossGolem = null;
-
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         enemyMove = FindObjectOfType<EnemyMove>();
-        if(isMove){
-        gameObject.transform.SetParent(null);
-        }
         player = FindObjectOfType<PlayerMove>().transform;
         bossManager = FindObjectOfType<BossManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         gameManager = FindObjectOfType<GameManager>();
         animator = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
-        if(isMove)
-        {StartCoroutine(bossManager.moveByPlayer(gameObject, Dir));}
+
+        #region 플레이어 추적
+        if(isMove){
+            gameObject.transform.SetParent(null);
+            StartCoroutine(bossManager.moveByPlayer(gameObject, Dir));
+            }
+        #endregion
     }
 
     void Update()
     {
-        if(mainPart && isDead)
-        {
-            StartCoroutine(killBoss());
-        }
-        if(isMove){
-        transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        if(mainPart && isDead){StartCoroutine(killBoss());}
+        if(isMove){ transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);}
     }
-    }
+    #region 총알에 맞았을 때
      private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDead) return;
@@ -74,14 +75,6 @@ public class BossPArt : MonoBehaviour
                 StartCoroutine(Dead());
             }
         }
-    }
-    private IEnumerator killBoss(){
-            bossGolem.GetComponent<SpriteRenderer>().material.SetColor("_Color", new Color(0.5f, 0.4f, 0f ,0f));
-            bossGolem.GetComponent<Animator>().Play("Boom");
-            audioSource.Play();
-            yield return new WaitForSeconds(0.4f);
-                gameManager.getLife(4);
-            bossGolem.SetActive(false);
     }
     private IEnumerator Dead()
     {
@@ -115,5 +108,17 @@ public class BossPArt : MonoBehaviour
         Object.transform.SetParent(gameManager.poolManager.transform, false);
         Object.SetActive(false);
     }
+    #endregion
+
+    #region 보스 처치
+    private IEnumerator killBoss(){
+            bossGolem.GetComponent<SpriteRenderer>().material.SetColor("_Color", new Color(0.5f, 0.4f, 0f ,0f));
+            bossGolem.GetComponent<Animator>().Play("Boom");
+            audioSource.Play();
+            yield return new WaitForSeconds(0.4f);
+                gameManager.getLife(4);
+            bossGolem.SetActive(false);
+    }
+    #endregion
 }
 

@@ -7,31 +7,23 @@ public class PlayerMove : MonoBehaviour
 
     #region 변수 목록
     private GameManager gameManager = null;
-    private Vector2 targetPosition = Vector2.zero;
+    private Animator animator = null;
+    private AudioSource audioSource = null;
     private bool isDamaged = false;
     private SpriteRenderer spriteRenderer = null;
     public bool Thunder = false;
-    [Header("이동속도")]
-    [SerializeField]
-    private float speed = 5f;
     public bool Stone = false;
     public bool Flame = false;
+    #endregion
 
+    #region 발사
+    private Vector2 targetPosition = Vector2.zero;
+    [Header("이동속도")] [SerializeField] private float speed = 5f;
+    [Header("총알 발사 위치")] [SerializeField] private Transform bulletPosition = null;
+    [Header("총알 프리팹")] [SerializeField] private GameObject bulletPrefab = null;
+    [Header("총알 발사간격")] [SerializeField] private float bulletDelay = 0.5f;
+    [Header("총알 스프라이트")] [SerializeField] private Sprite OriginalBulletSprite;
 
-    [Header("총알 발사 위치")]
-    [SerializeField]
-    private Transform bulletPosition = null;
-
-    [Header("총알 프리팹")]
-    [SerializeField]
-    private GameObject bulletPrefab = null;
-    private Animator animator = null;
-private AudioSource audioSource = null;
-    [Header("총알 발사간격")]
-    [SerializeField]
-    private float bulletDelay = 0.5f;
-    [SerializeField] private Sprite BulletThunderSprite;
-    [SerializeField] private Sprite OriginalBulletSprite;
     #endregion
 
 
@@ -45,7 +37,6 @@ private AudioSource audioSource = null;
         StartCoroutine(Fire());
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButton(0))
@@ -57,6 +48,7 @@ private AudioSource audioSource = null;
         }
 
     }
+    #region 총알 발사
     private IEnumerator Fire()
     {
         while (true)
@@ -65,7 +57,7 @@ private AudioSource audioSource = null;
             yield return new WaitForSeconds(bulletDelay);
         }
     }
-    private GameObject InstantiateOrPool()
+   private GameObject InstantiateOrPool()
     {
         GameObject result = null;
         if (gameManager.poolManager.transform.childCount > 0)
@@ -88,6 +80,9 @@ private AudioSource audioSource = null;
         result.transform.localScale = bulletPosition.lossyScale;
         return result;
     }
+    #endregion
+
+    #region 플레이어가 먹거나 맞을 때
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Item")) 
@@ -153,5 +148,6 @@ private AudioSource audioSource = null;
             yield return new WaitForSeconds(0.1f);
         }
     }
+    #endregion
 }
 

@@ -11,62 +11,51 @@ public class EnemyMove : MonoBehaviour
     private Animator animator = null;
     private Collider2D col = null;
     private SpriteRenderer spriteRenderer = null;
+    private BossManager bossManager = null;
+    private AudioSource audioSource = null;
+    #endregion
+
+    #region 불변수들
     protected bool isDead = false;
     private bool isDamaged = false;
-
-    [Header("획득 점수")]
-    [SerializeField]
-    protected int score = 100;
-    [Header("적 HP")]
-    [SerializeField]
-    protected int hp = 7;
-    [Header("적 이동속도")]
-    [SerializeField]
-    protected float speed = 0f;
-    [SerializeField]
-    private GameObject item = null;
-    [SerializeField]
-    private bool sizeChange = false;
-    [SerializeField]
-    private bool hasAni = false;
-    [SerializeField] private Sprite[] sprite = null;
-    [SerializeField] private bool isVertical = false;
-    [SerializeField] private bool isFire = false;
-    private int direction = 0;
-    [SerializeField] GameObject lazer = null;
     private bool isStop = false;
+
+    [Header("총알, 레이저를 쏘는가?")] [SerializeField] private bool isFire = false;
+    [Header("크기를 바꾸는가?")] [SerializeField]private bool sizeChange = false;
+    [Header("맞았을 때 애니메이션이 있는가?")] [SerializeField] private bool hasAni = false;
+    [Header("옆으로 가는가?")] [SerializeField] private bool isVertical = false;
+    
+    [Header("맞을 때 느려지는가?")] [SerializeField] private bool Slow = true;
+    [Header("아이템이 있는가?")] [SerializeField] private bool hasItem = false;
+    [Header("혹시 잠자리인가?")] public bool isDragonFly = false;
+    #endregion
+
+    #region 적 정보
+    [Header("획득 점수")] [SerializeField] protected int score = 100;
+    [Header("적 HP")] [SerializeField] protected int hp = 7;
+    [Header("적 이동속도")] [SerializeField] protected float speed = 0f;
+    [Header("아이템")] [SerializeField] private GameObject item = null;
+    [Header("맞았을 때 바뀌는 모습")] [SerializeField] private Sprite[] sprite = null;
+    [Header("레이저")] [SerializeField] GameObject lazer = null;
+
     private float shotDeley = 1.3f;
     private float shotingtime;
-    private Transform player;
-    private BossManager bossManager = null;
-    [SerializeField]
-    private int Dir;
-    [SerializeField]
-    private bool Udo = false;
-    [SerializeField]
-    private bool Slow = true;
-    [SerializeField] private bool hasItem = false;
-    private AudioSource audioSource = null;
-    [SerializeField]private int enemyType;
+    private int direction = 0;
     private float ownSpeed;
     private int ownHp;
-    public bool isDragonFly = false;
     #endregion
 
     protected virtual void Start()
     {
         ownSpeed = speed;
         ownHp = hp;
-        player = FindObjectOfType<PlayerMove>().transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
         gameManager = FindObjectOfType<GameManager>();
         animator = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
         bossManager = FindObjectOfType<BossManager>();
-        Started();
-        if(Udo)StartCoroutine(bossManager.moveByPlayer(gameObject, Dir));
-        player = FindObjectOfType<PlayerMove>().transform;
         audioSource = GetComponent<AudioSource>();
+        Started();
     }
     private void Started()
     {
@@ -77,20 +66,19 @@ public class EnemyMove : MonoBehaviour
 
     protected virtual void Update()
     {
-        if(Udo)Udotan();
         if(isFire)startFire();
-        if (!isVertical)
-            transform.Translate(Vector2.down * ownSpeed * Time.deltaTime);
+        #region 좌우로 움직이는 적
+        if (!isVertical)transform.Translate(Vector2.down * ownSpeed * Time.deltaTime);
         else {
             if (isStop) return;
             transform.Translate(Vector2.right * ownSpeed/2 * direction * Time.deltaTime + Vector2.down * ownSpeed/2 * Time.deltaTime);
-        if (transform.position.x > gameManager.MaxPosition.x) direction = -1;
-        if (transform.position.x < gameManager.MinPosition.x) direction = 1;
-    }
-        if (transform.position.y <= gameManager.MinPosition.y) Despawn(gameObject);
+            if (transform.position.x > gameManager.MaxPosition.x) direction = -1;
+            if (transform.position.x < gameManager.MinPosition.x) direction = 1;
+        }
+        #endregion
         if (!isDamaged) ownSpeed += 0.01f; 
     }
-
+    #region 총알 발사
     private void startFire()
     {
           shotingtime+=Time.deltaTime;
@@ -99,6 +87,15 @@ public class EnemyMove : MonoBehaviour
             StartCoroutine(Fire());
         }
     }
+     private IEnumerator Fire()
+    {
+        isStop = true;
+        lazer.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        lazer.SetActive(false);
+        isStop = false;
+    }
+    #endregion
     
     private IEnumerator ChangeScale()
     {
@@ -108,6 +105,7 @@ public class EnemyMove : MonoBehaviour
             transform.localScale = new Vector3(randomScale, randomScale);
         yield return 1;
     }
+    #region 적이 피해를 입을 때
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDead) return;
@@ -119,7 +117,7 @@ public class EnemyMove : MonoBehaviour
 
             DespawnB(collision.gameObject);
             StartCoroutine(Damaged());
-            if (hp <= 0)
+            if (hp < 0)
             {
                 if (isDead) return;
                 isDead = true; //1번 실행
@@ -133,7 +131,7 @@ public class EnemyMove : MonoBehaviour
         if(ownSpeed > 0.3f && !Slow)
         ownSpeed -= 0.5f;
         hp--;
-        if (hasAni)
+        if (hasAni && hp>0)
         {
             spriteRenderer.sprite = sprite[hp];
         }
@@ -156,14 +154,7 @@ public class EnemyMove : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         Despawn(gameObject);
     }
-    private IEnumerator Fire()
-    {
-        isStop = true;
-        lazer.SetActive(true);
-        yield return new WaitForSeconds(0.3f);
-        lazer.SetActive(false);
-        isStop = false;
-    }
+   
     public void Despawn(GameObject Object)
     {
         Object.transform.SetParent(gameManager.objectManager.transform, false);
@@ -175,10 +166,6 @@ public class EnemyMove : MonoBehaviour
     {
         Object.transform.SetParent(gameManager.poolManager.transform, false);
         Object.SetActive(false);
-    }
-    
-    private void OnEnable(){
-        
     }
     public void State()
     {
@@ -195,11 +182,7 @@ public class EnemyMove : MonoBehaviour
             spriteRenderer.sprite = sprite[6];
         }
     }
-    private void Udotan()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, player.position, ownSpeed * Time.deltaTime);
-    }
-    private void DropItem()
+        private void DropItem()
     {
         if(isItem)
         {
@@ -208,4 +191,5 @@ public class EnemyMove : MonoBehaviour
         isItem = false;
         }
     }
+    #endregion
  }

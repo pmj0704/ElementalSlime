@@ -6,40 +6,40 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
+    #region 변수 목록
     public Vector2 MinPosition { get; private set; }
     public Vector2 MaxPosition { get; private set; }
-    [SerializeField]
-    private Text textHighScore = null;
-    [SerializeField]
-    private GameObject[] spriteCloud = null;
     public PoolManager poolManager { get; private set; }
-    [SerializeField] private AudioListener audioListener;
-    [SerializeField] private GameObject discr;
-    [SerializeField] private GameObject setting;
-    [SerializeField] private GameObject help;
-    [SerializeField] GameObject next;
-    [SerializeField] GameObject recent;
+    [Header("구름 모양")] [SerializeField] private GameObject[] spriteCloud = null;
+    #endregion
 
-        private int num = 0;
-
+    #region UI
+    private int num = 0;
     private bool onSetting = true;
     public bool onSound = true;
     private bool onLic = true;
-
-    [SerializeField] Sprite[] SoundSprite;
-    [SerializeField] GameObject SoundBT;
-    [SerializeField] GameObject Licence;
-
-    [SerializeField] Sprite[] pages;
+    
+    [Header("소리")] [SerializeField] private AudioListener audioListener;
+    [Header("설명")] [SerializeField] private GameObject discr;
+    [Header("설정")] [SerializeField] private GameObject setting;
+    [Header("설명 버튼")] [SerializeField] private GameObject help;
+    [Header("다음 장 버튼")] [SerializeField] GameObject next;
+    [Header("이전 장 버튼")] [SerializeField] GameObject recent;
+    [Header("최고 점수")] [SerializeField] private Text textHighScore = null;
+    [Header("소리 버튼")] [SerializeField] GameObject SoundBT;
+    [Header("라이선스 버튼")] [SerializeField] GameObject Licence;
+    [Header("설명 페이지")] [SerializeField] Sprite[] pages;
+    #endregion
 
     void Start()
     {
-        audioListener = FindObjectOfType<AudioListener>();
-        textHighScore.text = string.Format("HIGHSCORE {0}", PlayerPrefs.GetInt("HIGHSCORE", 0));
         StartCoroutine(SpawnCloud());
+        textHighScore.text = string.Format("HIGHSCORE {0}", PlayerPrefs.GetInt("HIGHSCORE", 0));
         MinPosition = new Vector2(-2f, -4.3f);
         MaxPosition = new Vector2(2f, 4.3f);
         poolManager = FindObjectOfType<PoolManager>();
+        audioListener = FindObjectOfType<AudioListener>();
+
     }
     void Update()
     {
@@ -68,30 +68,13 @@ public class GameOverManager : MonoBehaviour
             recent.SetActive(true);
         }
     }
-    // Update is called once per frame
+
+    #region UI
     public void ClickToStart()
     {
         SceneManager.LoadScene("Main");
     }
 
-    private IEnumerator SpawnCloud()
-    {
-        float cloudDelay;
-        float cloudY;
-        int randomCloud;
-        while (true)
-        {
-            cloudDelay = Random.Range(1f, 3f);
-            randomCloud = Random.Range(0, 2);
-            cloudY = Random.Range(-3f, 7f);
-            Instantiate(spriteCloud[randomCloud], new Vector2(2.7f, cloudY), Quaternion.identity);
-            yield return new WaitForSeconds(2.3f);
-        }
-    }
-//    public OpenSetting()
-//    {
-
-//    }
    public void Sound()
    {
        if(onSound){
@@ -154,4 +137,22 @@ public class GameOverManager : MonoBehaviour
            onLic=true;
        }
    }
+   #endregion
+
+   #region BG
+    private IEnumerator SpawnCloud()
+    {
+        float cloudDelay;
+        float cloudY;
+        int randomCloud;
+        while (true)
+        {
+            cloudDelay = Random.Range(1f, 3f);
+            randomCloud = Random.Range(0, 2);
+            cloudY = Random.Range(-3f, 7f);
+            Instantiate(spriteCloud[randomCloud], new Vector2(2.7f, cloudY), Quaternion.identity);
+            yield return new WaitForSeconds(2.3f);
+        }
+    }
+    #endregion
 }

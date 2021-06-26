@@ -4,46 +4,54 @@ using UnityEngine;
 
 public class BossManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] arm;
-    [SerializeField] private GameObject mainBody;
+    #region 보스 파트
+    [Header("보스 팔")] [SerializeField] private GameObject[] arm;
+    [Header("보스 몸")] [SerializeField] private GameObject mainBody;
+    [Header("보스 새로 생성 할 팔")] [SerializeField] private GameObject[] newArm;
+    [Header("큰 스파이크")] [SerializeField] private GameObject[] spikeL;
+    [Header("중간 크기 스파이크")] [SerializeField] private GameObject[] spikeM;
+    [Header("작은 스파이크")] [SerializeField] private GameObject[] spikeS;
+    [Header("바위")] [SerializeField] private GameObject Bullder;
+    [Header("보스 다리")] [SerializeField] private GameObject[] Leg;
+    [Header("보스 총알")] [SerializeField] private GameObject newBullet;
+    [Header("보스 총알 생성 위치")] [SerializeField] private Transform[] ShootingPos;
+    [Header("보스 팔 위치")] [SerializeField] private Transform[] armPos;
+    #endregion 
 
-    [SerializeField] private GameObject[] newArm;
-    [SerializeField] private GameObject[] spikeL;
-    [SerializeField] private GameObject[] spikeM;
-    [SerializeField] private GameObject[] spikeS;
-    [SerializeField] private GameObject Bullder;
-    [SerializeField] private GameObject[] Leg;
-    [SerializeField] private GameObject newBullet;
-
-    [SerializeField] private Transform[] ShootingPos;
-    
-    [SerializeField] private Transform[] armPos;
-    [SerializeField]private Transform player;
-    private Animator animator;
+    #region  플레이어 추적
+    [Header("플레이어")][SerializeField] private Transform player;
     private Vector3 diff = Vector3.zero;
+    private Vector3 targetPosition = new Vector3(-0.81f, 0.13f, 0);
     private float rotationZ = 0f;
-    Vector3 targetPosition = new Vector3(-0.81f, 0.13f, 0);
     private Transform targetPos;
+    #endregion
+
+    #region 컴포턴트와 오브젝트 타입
+    private Animator animator;
     private GameManager gameManager = null;
+    #endregion
 
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-        Bullder.SetActive(false);
         animator = GetComponent<Animator>();
+        #region 공격
+        Bullder.SetActive(false);
         StartCoroutine(moveByPlayer(arm[0],(-220)));
         StartCoroutine(moveByPlayer(arm[1],25));
         StartCoroutine(ShootArm());
         StartCoroutine(SpikeAttack());
         StartCoroutine(KeepShooting());
+        #endregion
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, 5 * Time.deltaTime);
         
     }
+
+    #region 플레이어 추적
     public IEnumerator moveByPlayer(GameObject one, int Dir)
     {
         while(true)
@@ -55,6 +63,9 @@ public class BossManager : MonoBehaviour
             yield return 0;
         }
     }
+    #endregion
+
+    #region 공격
     private IEnumerator ShootArm()
     {
         yield return new WaitForSeconds (2f);
@@ -137,6 +148,9 @@ private IEnumerator Shoot()
     }
 
 }
+#endregion
+
+#region  총알 풀링
 private GameObject ShootPool(int num)
     {
         GameObject result = null;
@@ -157,4 +171,5 @@ private GameObject ShootPool(int num)
         }
         return result;
     }
+    #endregion
 }
